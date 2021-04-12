@@ -1,14 +1,23 @@
 ## Stripe API Postman Collection
 
 This is a postman collection covering the Stripe API. See https://stripe.com/docs/api for more details.
+## Prerequisites
+[Postman](https://www.getpostman.com/downloads/)
 
+[Stripe Account](https://dashboard.stripe.com/register)
 ## Getting Started
 
-### Fork the collection
+### Import the collection file into your workspace
+Within your Postman workspace select the Import button: 
 
-Get started by forking the collection into your private workspace:
+![Import collection](https://raw.github.com/dawn-stripe/postman_screenshots/master/postman_import_collection.png)
 
-![fork](https://raw.github.com/dawn-stripe/postman_screenshots/master/postman_fork_collection.png)
+
+Next copy the [StripeAPICollection.json](https://github.com/stripe/stripe-postman/blob/master/StripeAPICollection.json) contents and paste in the **Paste Raw Text** section of the import dialog:
+
+ ![Import raw text](https://raw.github.com/dawn-stripe/postman_screenshots/master/postman_import_raw_text.png)
+
+
 
 ### Set your API key
 
