@@ -103,8 +103,8 @@ Initial collection
 
 ## Get Support
 
-Please reach out to @dawn or to the [#proj-da-postman-collection channel](https://app.slack.com/client/T024F4A92/C01REK7PNNA/details/top)
+Please reach out to @dawn or to the [#proj-da-postman-collection channel](https://app.slack.com/client/T024F4A92/C01REK7PNNA/details/top) if you need help getting started or have any questions. 
 
 ## We want to hear from you
 
-Please fill out the [feedback doc](https://paper.dropbox.com/doc/Postman-collection-internal-feedback--BHjTBMKgyATmftHWF0SfTpULAg-fvt4yO5616kEZmoIpuWz2)
+We want to hear how we can make the collection better! Don't hestiate to file [issues](https://github.com/stripe/stripe-postman/issues) for any bugs you encounters, features you'd like to see or other suggestions you have. 
