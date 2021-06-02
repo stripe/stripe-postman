@@ -85,6 +85,22 @@ To remove all metadata pass the `metadata` parameter without a value set:
 
 
 ## Changelog
+### 2021-06-02
+* `Account.company.structure`, `Account#create.company.structure`, `Account#update.company.structure` and `Token#create.account.company.structure` added new enum members: `llc, free_zone_llc, free_zone_establishment and sole_establishment` (breaking change)
+* Added support for `documents` on `Person#update`, `Person#create` and `Token#create.person`
+* `WebhookEndpoint#create.enabled_events[]` and `WebhookEndpoint#update.enabled_events[]` added new enum members: `identity.verification_session.requires_input, identity.verification_session.redacted, identity.verification_session.processing, identity.verification_session.created, identity.verification_session.canceled and identity.verification_session.verified`
+* Added support for `acss_debit` on `PaymentMethod#update`
+* `Identity.VerificationReport.created` changed from `integer` to `DateTime` (breaking change)
+* `Identity.VerificationSession.client_secret` changed from `string` to `nullable(string)` (breaking change)
+* Added support for new resource `Identity.VerificationReport`
+* Added support for new resource `Identity.VerificationSession`
+* `File#list.purpose` and `File.purpose` added new enum members: `identity_document_downloadable and selfie` (breaking change)
+* Removed support for method: `PaymentIntent#verify_microdeposits` (breaking change)
+* Removed support for method: `SetupIntent#verify_microdeposits` (breaking change)
+* New method: `PaymentIntent#verify_microdeposits`
+* New method: `SetupIntent#verify_microdeposits`
+* `Account#update.business_profile.support_url` and `Account#create.business_profile.support_url` changed from `string` to `emptyStringable(string)`
+
 ### 2021-05-19
 * Added support for `reference` on `Charge.payment_method_details.afterpay_clearpay`
 * Added support for `afterpay_clearpay` on `PaymentIntent#confirm.payment_method_options`, `PaymentIntent#update.payment_method_options`, `PaymentIntent#create.payment_method_options` and `PaymentIntent.payment_method_options`
@@ -110,10 +126,5 @@ To remove all metadata pass the `metadata` parameter without a value set:
 * `Session#create.locale` and `Checkout.Session.locale` added new enum members: `th` (breaking change)
 ### 03-17-21:
 Initial collection
-
-## Get Support
-
-Please reach out to @dawn or to the [#proj-da-postman-collection channel](https://app.slack.com/client/T024F4A92/C01REK7PNNA/details/top)
-
 ## We want to hear from you
 We want to hear how we can make the collection better! Don't hestiate to file [issues](https://github.com/stripe/stripe-postman/issues) for any bugs you encounters, features you'd like to see or other suggestions you have.
