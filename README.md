@@ -1,4 +1,6 @@
 
+> ## Now available within Postman's API Network
+> The Stripe API Collection is now hosted within [Stripe's public workspace](https://www.postman.com/stripedev/workspace/stripe-developers/overview) in Postman.  This means you no longer need to import this collection, but can instead fork from the public workspace into yours. Head over there to get started. 
 ## Stripe API Postman Collection
 This is a postman collection covering the Stripe API. See https://stripe.com/docs/api for more details.
 ## Prerequisites
@@ -6,7 +8,24 @@ This is a postman collection covering the Stripe API. See https://stripe.com/doc
 
 [Stripe Account](https://dashboard.stripe.com/register)
 ## Getting Started
+To get started you can either fork the collction from [Stripe's public workspace](https://www.postman.com/stripedev/workspace/stripe-developers/overview) within Postman or import the collection JSON file from this repo. 
+### Fork the collection from Stripe's public workspace
+From within the [Stripe's public workspace](https://www.postman.com/stripedev/workspace/stripe-developers/overview), fork the Stripe API collection:
+
+![Fork collection](https://raw.github.com/dawn-stripe/postman_screenshots/master/postman_fork_collection.png)
+
+Enter a name for your fork and select the workspace where it will be created: 
+
+![Fork form](https://raw.github.com/dawn-stripe/postman_screenshots/master/postman_fork_form.png)
+
+You can also fork the environment template from the Stripe Developers Workspace:
+
+![Fork environment template](https://raw.github.com/dawn-stripe/postman_screenshots/master/postman_fork_env_template.png) 
+
+Next: [Set your API key](#set-your-api-key)
 ### Import the collection file into your workspace
+If you don't want to fork the collection from the public workspace, you can import it from this repo. 
+
 Within your Postman workspace select the Import button:
 
 ![Import collection](https://raw.github.com/dawn-stripe/postman_screenshots/master/postman_import_collection.png)
@@ -18,7 +37,7 @@ Next copy the [StripeAPICollection.json](https://github.com/stripe/stripe-postma
 ### Set your API key
 To run requests you'll need to supply your [testmode secret API key](https://dashboard.stripe.com/test/apikeys) and set it as an [environment variable](https://learning.postman.com/docs/sending-requests/variables/) within your workspace.
 
-To set any environment variable, create a new envionment within Postman:
+To set any environment variable, fork the environment template within the Stripe public workspace, or create a new envionment within Postman:
 
 ![create a new environment](https://raw.github.com/dawn-stripe/postman_screenshots/master/postman_create_new_env.png)
 
