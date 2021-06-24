@@ -1,6 +1,27 @@
 #CHANGELOG
 
 ## Changelog
+## 2021-06-22
+* API updates
+  * `TaxId#create.type`, `Invoice.customer_tax_ids[].type`, `Invoice#upcomingLines.customer_details.tax_ids[].type`, `Invoice#upcoming.customer_details.tax_ids[].type`, `Customer#create.tax_id_data[].type`, `Checkout.Session.customer_details.tax_ids[].type` and `TaxId.type` added new enum members: `il_vat` (breaking change)
+  * `TaxId#create.type`, `Invoice.customer_tax_ids[].type`, `Invoice#upcomingLines.customer_details.tax_ids[].type`, `Invoice#upcoming.customer_details.tax_ids[].type`, `Customer#create.tax_id_data[].type`, `Checkout.Session.customer_details.tax_ids[].type` and `TaxId.type` added new enum members: `ca_pst_mb, ca_pst_bc, ca_gst_hst and ca_pst_sk` (breaking change)
+  * Added support for `url` on `Checkout.Session`
+  * Added support for `tax_id_collection` on `Session#create` and `Checkout.Session`
+  * `Terminal.Reader.location` changed from `string` to `expandable($Terminal.Location)` (breaking change)
+  * Added support for `controller` on `Account`
+  * Added support for new resource `TaxCode`
+  * Added support for `automatic_tax` on `SubscriptionSchedule.default_settings`, `SubscriptionSchedule#update.phases[]`, `SubscriptionSchedule#update.default_settings`, `SubscriptionSchedule#create.phases[]`, `SubscriptionSchedule#create.default_settings`, `Subscription`, `Subscription#update`, `Subscription#create`, `Invoice`, `Invoice#upcomingLines`, `Invoice#update`, `Invoice#upcoming`, `Invoice#create`, `Checkout.Session`, `Session#create` and `SubscriptionSchedule.phases[]`
+  * Added support for `customer_update` on `Session#create`
+  * Added support for `tax_behavior` on `SubscriptionSchedule#update.phases[].add_invoice_items[].price_data`, `SubscriptionSchedule#create.phases[].items[].price_data`, `SubscriptionSchedule#create.phases[].add_invoice_items[].price_data`, `SubscriptionItem#update.price_data`, `SubscriptionItem#create.price_data`, `Subscription#update.items[].price_data`, `Subscription#update.add_invoice_items[].price_data`, `Subscription#create.items[].price_data`, `Subscription#create.add_invoice_items[].price_data`, `Price`, `Price#update`, `Price#create`, `InvoiceItem#update.price_data`, `InvoiceItem#create.price_data`, `Invoice#upcomingLines.subscription_items[].price_data`, `Invoice#upcomingLines.invoice_items[].price_data`, `Invoice#upcoming.subscription_items[].price_data`, `Invoice#upcoming.invoice_items[].price_data`, `Session#create.line_items[].price_data` and `SubscriptionSchedule#update.phases[].items[].price_data`
+  * Added support for `tax_code` on `Product#update`, `Product#create`, `Price#create.product_data`, `Plan#create.product[0]`, `Session#create.line_items[].price_data.product_data` and `Product`
+  * Added support for `tax` on `Customer#update`, `Customer#create` and `Customer`
+  * Added support for `customer_details` on `Invoice#upcoming` and `Invoice#upcomingLines`
+  * Added support for `tax_type` on `TaxRate#update`, `TaxRate#create` and `TaxRate`
+
+* Collection updates:
+  * Fixed issue where some required parameters weren't being selected by default in the request
+  * Fixed typos in request names
+
 ## 2021-06-02
 * API updates
   * Added support for `llc`, `free_zone_llc`, `free_zone_establishment` and `sole_establishment` to the `structure` enum on `Account.company`, `Account#create.company`, `Account#update.company` and `Token#create.account.company.` 
