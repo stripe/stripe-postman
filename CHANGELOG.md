@@ -1,6 +1,38 @@
 #CHANGELOG
 
 ## Changelog
+## 2021-07-20
+* Add support for `ideal` on `PaymentIntent#create.payment_method_options`, `PaymentIntent#update.payment_method_options`, `PaymentIntent#confirm.payment_method_options`, and `PaymentIntent.payment_method_options`
+* Remove support for values `api_connection_error`, `authentication_error`, and `rate_limit_error` from enums `StripeError.type`, `StripeErrorResponse.error.type`, `Invoice.last_finalization_error.type`, `PaymentIntent.last_payment_error.type`, `SetupAttempt.setup_error.type`, and `SetupIntent.last_setup_error.type`
+* Add support for new values `quote.accepted`, `quote.canceled`, `quote.created`, and `quote.finalized` on enums `WebhookEndpoint#create.enabled_events[]` and `WebhookEndpoint#update.enabled_events[]`
+* Add support for `list_computed_upfront_line_items` method on resource `Quote`
+* Add support for `finalize_quote` method on resource `Quote`
+* Remove support for `finalize` method on resource `Quote`
+* Add support for new resource `Quote`
+* Add support for `quote` on `Invoice`
+* Add support for new value `quote_accept` on enum `Invoice.billing_reason`
+* Changed type of `Charge.payment_method_details.card.three_d_secure.result` and `SetupAttempt.payment_method_details.card.three_d_secure.result` from `enum` to `nullable(enum)`
+* Changed type of `Charge.payment_method_details.card.three_d_secure.version` and `SetupAttempt.payment_method_details.card.three_d_secure.version` from `enum('1.0.2'|'2.1.0'|'2.2.0')` to `nullable(enum('1.0.2'|'2.1.0'|'2.2.0'))`
+* Add support for new value `boleto` on enums `Invoice#create.payment_settings.payment_method_types[]`, `Invoice#update.payment_settings.payment_method_types[]`, and `Invoice.payment_settings.payment_method_types[]`
+* Add support for `boleto_payments` on `Account#update.capabilities`, `Account#create.capabilities`, and `Account.capabilities`
+* Add support for `wechat_pay` on `Charge.payment_method_details`, `Checkout.Session#create.payment_method_options`, `PaymentIntent#create.payment_method_data`, `PaymentIntent#create.payment_method_options`, `PaymentIntent#update.payment_method_data`, `PaymentIntent#update.payment_method_options`, `PaymentIntent#confirm.payment_method_data`, `PaymentIntent#confirm.payment_method_options`, `PaymentIntent.payment_method_options`, `PaymentMethod#create`, and `PaymentMethod`
+* Add support for `boleto` and `oxxo` on `Checkout.Session#create.payment_method_options` and `Checkout.Session.payment_method_options`
+* Add support for new values `boleto`, `oxxo`, and `wechat_pay` on enum `Checkout.Session#create.payment_method_types[]`
+* Add support for new value `wechat_pay` on enums `Invoice#create.payment_settings.payment_method_types[]`, `Invoice#update.payment_settings.payment_method_types[]`, and `Invoice.payment_settings.payment_method_types[]`
+* Add support for new value `wechat_pay` on enums `PaymentIntent#create.payment_method_data.type`, `PaymentIntent#update.payment_method_data.type`, and `PaymentIntent#confirm.payment_method_data.type`
+* Add support for `wechat_pay_display_qr_code`, `wechat_pay_redirect_to_android_app`, and `wechat_pay_redirect_to_ios_app` on `PaymentIntent.next_action`
+* Add support for new value `wechat_pay` on enum `PaymentMethod#create.type`
+* Add support for new value `wechat_pay` on enum `PaymentMethod#list.type`
+* Add support for new value `wechat_pay` on enum `PaymentMethod.type`
+* Add support for `boleto` on `Charge.payment_method_details`, `PaymentIntent#create.payment_method_data`, `PaymentIntent#create.payment_method_options`, `PaymentIntent#update.payment_method_data`, `PaymentIntent#update.payment_method_options`, `PaymentIntent#confirm.payment_method_data`, `PaymentIntent#confirm.payment_method_options`, `PaymentIntent.payment_method_options`, `PaymentMethod#create`, and `PaymentMethod`
+* Add support for new value `boleto` on enums `PaymentIntent#create.payment_method_data.type`, `PaymentIntent#update.payment_method_data.type`, and `PaymentIntent#confirm.payment_method_data.type`
+* Add support for `boleto_display_details` on `PaymentIntent.next_action`
+* Add support for new value `boleto` on enum `PaymentMethod#create.type`
+* Add support for new value `boleto` on enum `PaymentMethod#list.type`
+* Add support for new value `boleto` on enum `PaymentMethod.type`
+* Collection updates:
+  * Fixed issue where nested dictionary child parameters weren't being populated
+
 ## 2021-06-22
 * API updates
   * `TaxId#create.type`, `Invoice.customer_tax_ids[].type`, `Invoice#upcomingLines.customer_details.tax_ids[].type`, `Invoice#upcoming.customer_details.tax_ids[].type`, `Customer#create.tax_id_data[].type`, `Checkout.Session.customer_details.tax_ids[].type` and `TaxId.type` added new enum members: `il_vat` (breaking change)
@@ -17,7 +49,6 @@
   * Added support for `tax` on `Customer#update`, `Customer#create` and `Customer`
   * Added support for `customer_details` on `Invoice#upcoming` and `Invoice#upcomingLines`
   * Added support for `tax_type` on `TaxRate#update`, `TaxRate#create` and `TaxRate`
-
 * Collection updates:
   * Fixed issue where some required parameters weren't being selected by default in the request
   * Fixed typos in request names
