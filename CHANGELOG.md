@@ -1,12 +1,33 @@
 #CHANGELOG
 
 ## Changelog
-## 2021-08-24
+### 2021-09-20
+* Add support for `full_name_aliases` on `Account#update.individual`, `Account#create.individual`, `Person#create`, `Person#update`, `Person`, `Token#create.account.individual`, and `Token#create.person`
+* Change `BillingPortal.Configuration.features.subscription_cancel.cancellation_reason` to be required
+* Add support for `default_for` on `Checkout.Session#create.payment_method_options.acss_debit.mandate_options`, `Checkout.Session.payment_method_options.acss_debit.mandate_options`, `Mandate.payment_method_details.acss_debit`, `SetupIntent#create.payment_method_options.acss_debit.mandate_options`, `SetupIntent#update.payment_method_options.acss_debit.mandate_options`, `SetupIntent#confirm.payment_method_options.acss_debit.mandate_options`, and `SetupIntent.payment_method_options.acss_debit.mandate_options`
+* Add support for `acss_debit` on `Invoice#create.payment_settings.payment_method_options`, `Invoice#update.payment_settings.payment_method_options`, `Invoice.payment_settings.payment_method_options`, `Subscription#create.payment_settings.payment_method_options`, `Subscription#update.payment_settings.payment_method_options`, and `Subscription.payment_settings.payment_method_options`
+* Add support for new value `acss_debit` on enums `Invoice#create.payment_settings.payment_method_types[]`, `Invoice#update.payment_settings.payment_method_types[]`, `Invoice.payment_settings.payment_method_types[]`, `Subscription#create.payment_settings.payment_method_types[]`, `Subscription#update.payment_settings.payment_method_types[]`, and `Subscription.payment_settings.payment_method_types[]`
+* Add support for `livemode` on `Reporting.ReportType`
+* Add support for new value `rst` on enums `TaxRate#create.tax_type`, `TaxRate#update.tax_type`, and `TaxRate.tax_type`
+* Change `Checkout.Session.after_expiration`, `Checkout.Session.consent`, `Checkout.Session.consent_collection`, `Checkout.Session.expires_at`, and `Checkout.Session.recovered_from` to be required
+* Add support for new value `checkout.session.expired` on enums `WebhookEndpoint#create.enabled_events[]` and `WebhookEndpoint#update.enabled_events[]`
+* Change `Account.future_requirements.alternatives`, `Account.requirements.alternatives`, `Capability.future_requirements.alternatives`, `Capability.requirements.alternatives`, `Person.future_requirements.alternatives`, and `Person.requirements.alternatives` to be required
+* Change type of `Capability.future_requirements.alternatives`, `Capability.requirements.alternatives`, `Person.future_requirements.alternatives`, and `Person.requirements.alternatives` from `array(AccountRequirementsAlternative)` to `nullable(array(AccountRequirementsAlternative))`
+* Add support for `future_requirements` on `Account`, `Capability`, and `Person`
+* Add support for `alternatives` on `Account.requirements`, `Capability.requirements`, and `Person.requirements`
+* Change type of `Checkout.Session.after_expiration.recovery.allow_promotion_codes` and `Checkout.Session.after_expiration.recovery.enabled` from `nullable(boolean)` to `boolean`
+* Add support for `after_expiration`, `consent_collection`, and `expires_at` on `Checkout.Session#create` and `Checkout.Session`
+* Add support for `consent` and `recovered_from` on `Checkout.Session`
+* Change type of `BillingPortal.Configuration#create.features.subscription_cancel.cancellation_reason.options[]`, `BillingPortal.Configuration#update.features.subscription_cancel.cancellation_reason.options[]`, and `BillingPortal.Configuration.features.subscription_cancel.cancellation_reason.options[]` from `string` to `enum`
+* Add support for `cancellation_reason` on `BillingPortal.Configuration.features.subscription_cancel`
+* Add support for `cancellation_reason` on `BillingPortal.Configuration#create.features.subscription_cancel` and `BillingPortal.Configuration#update.features.subscription_cancel`
+
+### 2021-08-24
 * Add support for `category_code` on `Issuing.Authorization.merchant_data` and `Issuing.Transaction.merchant_data`
 * Add support for new value `redacted` on enum `Review.closed_reason`
 * Add support for new values `hr`, `ko`, and `vi` on enums `Checkout.Session#create.locale` and `Checkout.Session.locale`
 
-## 2021-07-20
+### 2021-07-20
 * Add support for `ideal` on `PaymentIntent#create.payment_method_options`, `PaymentIntent#update.payment_method_options`, `PaymentIntent#confirm.payment_method_options`, and `PaymentIntent.payment_method_options`
 * Remove support for values `api_connection_error`, `authentication_error`, and `rate_limit_error` from enums `StripeError.type`, `StripeErrorResponse.error.type`, `Invoice.last_finalization_error.type`, `PaymentIntent.last_payment_error.type`, `SetupAttempt.setup_error.type`, and `SetupIntent.last_setup_error.type`
 * Add support for new values `quote.accepted`, `quote.canceled`, `quote.created`, and `quote.finalized` on enums `WebhookEndpoint#create.enabled_events[]` and `WebhookEndpoint#update.enabled_events[]`
@@ -38,7 +59,7 @@
 * Collection updates:
   * Fixed issue where nested dictionary child parameters weren't being populated
 
-## 2021-06-22
+### 2021-06-22
 * API updates
   * `TaxId#create.type`, `Invoice.customer_tax_ids[].type`, `Invoice#upcomingLines.customer_details.tax_ids[].type`, `Invoice#upcoming.customer_details.tax_ids[].type`, `Customer#create.tax_id_data[].type`, `Checkout.Session.customer_details.tax_ids[].type` and `TaxId.type` added new enum members: `il_vat` (breaking change)
   * `TaxId#create.type`, `Invoice.customer_tax_ids[].type`, `Invoice#upcomingLines.customer_details.tax_ids[].type`, `Invoice#upcoming.customer_details.tax_ids[].type`, `Customer#create.tax_id_data[].type`, `Checkout.Session.customer_details.tax_ids[].type` and `TaxId.type` added new enum members: `ca_pst_mb, ca_pst_bc, ca_gst_hst and ca_pst_sk` (breaking change)
@@ -58,7 +79,7 @@
   * Fixed issue where some required parameters weren't being selected by default in the request
   * Fixed typos in request names
 
-## 2021-06-02
+### 2021-06-02
 * API updates
   * Added support for `llc`, `free_zone_llc`, `free_zone_establishment` and `sole_establishment` to the `structure` enum on `Account.company`, `Account#create.company`, `Account#update.company` and `Token#create.account.company.` 
   * Added support for `documents` on `Person#update`, `Person#create` and `Token#create.person`
@@ -74,7 +95,7 @@
   * New method: `PaymentIntent#verify_microdeposits`
   * New method: `SetupIntent#verify_microdeposits`
 
-## 2021-05-19
+### 2021-05-19
 * API updates
   * Added support for `reference` on `Charge.payment_method_details.afterpay_clearpay`
   * Added support for `afterpay_clearpay` on `PaymentIntent#confirm.payment_method_options`, `PaymentIntent#update.payment_method_options`, `PaymentIntent#create.payment_method_options` and `PaymentIntent.payment_method_options`
@@ -100,5 +121,5 @@
   * `Session#create.locale` and `Checkout.Session.locale` added new enum members: `th` (breaking change)
 * Collection updates
   * Group resources in shared folders for improved readability
-## 03-17-21
+### 03-17-21
 Initial collection
