@@ -8,7 +8,7 @@ This is a postman collection covering the Stripe API. See https://stripe.com/doc
 
 [Stripe Account](https://dashboard.stripe.com/register)
 ## Getting Started
-To get started you can either fork the collction from [Stripe's public workspace](https://www.postman.com/stripedev/workspace/stripe-developers/overview) within Postman or import the collection JSON file from this repo. 
+To get started you can either fork the collection from [Stripe's public workspace](https://www.postman.com/stripedev/workspace/stripe-developers/overview) within Postman or import the collection JSON file from this repo. 
 ### Fork the collection from Stripe's public workspace
 From within the [Stripe's public workspace](https://www.postman.com/stripedev/workspace/stripe-developers/overview), fork the Stripe API collection:
 
