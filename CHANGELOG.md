@@ -1,7 +1,37 @@
 #CHANGELOG
 
 ## Changelog
+
+### 2021-11-01
+* Add support for `ownership_declaration` on `Account#update.company`, `Account#create.company`, `Account.company`, and `Token#create.account.company`
+* Add support for `proof_of_registration` on `Account#update.documents` and `Account#create.documents`
+* Change type of `Account#update.individual.full_name_aliases`, `Account#create.individual.full_name_aliases`, `Person#create.full_name_aliases`, `Person#update.full_name_aliases`, `Token#create.account.individual.full_name_aliases`, and `Token#create.person.full_name_aliases` from `array(string)` to `emptyStringable(array(string))`
+* Add support for `ownership_declaration_shown_and_signed` on `Token#create.account`
+* Add support for new values `en-BE`, `en-ES`, and `en-IT` on enums `PaymentIntent#create.payment_method_options.klarna.preferred_locale`, `PaymentIntent#update.payment_method_options.klarna.preferred_locale`, and `PaymentIntent#confirm.payment_method_options.klarna.preferred_locale`
+* Add support for `buyer_id` on `Charge.payment_method_details.alipay`
+* Change `Account.controller.type` to be required
+* Change type of `UsageRecord#create.timestamp` from `integer` to `literal('now') | integer`
+* Change `UsageRecord#create.timestamp` to be optional
+* Change `Checkout.Session.customer_details.phone` to be required
+* Add support for new value `klarna` on enum `Checkout.Session#create.payment_method_types[]`
+* Change `Checkout.Session.customer_details.phone` to be optional
+* Change `Charge.payment_method_details.klarna.payment_method_category`, `Charge.payment_method_details.klarna.preferred_locale`, `Checkout.Session.customer_details.phone`, and `PaymentMethod.klarna.dob` to be required
+* Add support for `list_payment_methods` method on resource `Customer`
+* Add support for `payment_method_category` and `preferred_locale` on `Charge.payment_method_details.klarna`
+* Add support for `klarna` on `PaymentIntent#create.payment_method_data`, `PaymentIntent#create.payment_method_options`, `PaymentIntent#update.payment_method_data`, `PaymentIntent#update.payment_method_options`, `PaymentIntent#confirm.payment_method_data`, `PaymentIntent#confirm.payment_method_options`, `PaymentIntent.payment_method_options`, `PaymentMethod#create`, and `PaymentMethod`
+* Add support for new value `klarna` on enums `PaymentIntent#create.payment_method_data.type`, `PaymentIntent#update.payment_method_data.type`, and `PaymentIntent#confirm.payment_method_data.type`
+* Add support for new value `klarna` on enum `PaymentMethod#create.type`
+* Add support for new value `klarna` on enum `PaymentMethod#list.type`
+* Add support for new value `klarna` on enum `PaymentMethod.type`
+* Add support for `phone_number_collection` on `Checkout.Session#create` and `Checkout.Session`
+* Add support for `phone` on `Checkout.Session.customer_details`
+* Add support for new value `customer_id` on enums `Radar.ValueList#create.item_type` and `Radar.ValueList.item_type`
+* Add support for new value `bbpos_wisepos_e` on enums `Terminal.Reader#list.device_type` and `Terminal.Reader.device_type`
+* Change `PaymentMethod#list.customer` to be optional
+* Add support for `klarna_payments` on `Account#update.capabilities`, `Account#create.capabilities`, and `Account.capabilities`
+
 ### 2021-09-20
+* Add support for `amount_authorized` and `overcapture_supported` on `Charge.payment_method_details.card_present`
 * Add support for `full_name_aliases` on `Account#update.individual`, `Account#create.individual`, `Person#create`, `Person#update`, `Person`, `Token#create.account.individual`, and `Token#create.person`
 * Change `BillingPortal.Configuration.features.subscription_cancel.cancellation_reason` to be required
 * Add support for `default_for` on `Checkout.Session#create.payment_method_options.acss_debit.mandate_options`, `Checkout.Session.payment_method_options.acss_debit.mandate_options`, `Mandate.payment_method_details.acss_debit`, `SetupIntent#create.payment_method_options.acss_debit.mandate_options`, `SetupIntent#update.payment_method_options.acss_debit.mandate_options`, `SetupIntent#confirm.payment_method_options.acss_debit.mandate_options`, and `SetupIntent.payment_method_options.acss_debit.mandate_options`
