@@ -2,6 +2,29 @@
 
 ## Changelog
 
+### 2021-12-15
+* Add support for new resource `PaymentIntentTypeSpecificPaymentMethodOptionsClient`
+* Add support for `setup_future_usage` on `PaymentIntent#create.payment_method_options.card`, `PaymentIntent#update.payment_method_options.card`, `PaymentIntent#confirm.payment_method_options.card`, and `PaymentIntent.payment_method_options.card`
+* Add support for `metadata` on `BillingPortal.Configuration#create`, `BillingPortal.Configuration#update`, and `BillingPortal.Configuration`
+* Add support for new values `ge_vat` and `ua_vat` on enums `Checkout.Session.customer_details.tax_ids[].type`, `Invoice.customer_tax_ids[].type`, and `TaxId.type`
+* Add support for new values `ge_vat` and `ua_vat` on enums `Customer#create.tax_id_data[].type`, `Invoice#upcoming.customer_details.tax_ids[].type`, `Invoice#upcomingLines.customer_details.tax_ids[].type`, and `TaxId#create.type`
+* Add support for new value `en-IE` on enums `PaymentIntent#create.payment_method_options.klarna.preferred_locale`, `PaymentIntent#update.payment_method_options.klarna.preferred_locale`, and `PaymentIntent#confirm.payment_method_options.klarna.preferred_locale`
+* Change type of `PaymentIntent#create.payment_method_data.billing_details.email`, `PaymentIntent#update.payment_method_data.billing_details.email`, `PaymentIntent#confirm.payment_method_data.billing_details.email`, `PaymentMethod#create.billing_details.email`, and `PaymentMethod#update.billing_details.email` from `string` to `emptyStringable(string)`
+* Add support for `giropay` on `PaymentIntent#create.payment_method_options`, `PaymentIntent#update.payment_method_options`, `PaymentIntent#confirm.payment_method_options`, and `PaymentIntent.payment_method_options`
+* Add support for `wallets` on `Issuing.Card`
+* Add support for new value `jct` on enums `TaxRate#create.tax_type`, `TaxRate#update.tax_type`, and `TaxRate.tax_type`
+* Add support for new resource `AutomaticPaymentMethodsPaymentIntent`
+* Add support for `automatic_payment_methods` on `PaymentIntent#create` and `PaymentIntent`
+* Add support for new resource `ShippingRate`
+* Add support for `shipping_options` on `Checkout.Session#create` and `Checkout.Session`
+* Add support for `shipping_rate` on `Checkout.Session`
+* Add support for `interac_present` on `PaymentIntent#create.payment_method_options`, `PaymentIntent#update.payment_method_options`, `PaymentIntent#confirm.payment_method_options`, and `PaymentIntent.payment_method_options`
+* Add support for new value `agrobank` on enums `Charge.payment_method_details.fpx.bank`, `PaymentIntent#create.payment_method_data.fpx.bank`, `PaymentIntent#update.payment_method_data.fpx.bank`, `PaymentIntent#confirm.payment_method_data.fpx.bank`, `PaymentMethod#create.fpx.bank`, and `PaymentMethod.fpx.bank`
+* Add support for `expire` method on resource `Checkout.Session`
+* Add support for `status` on `Checkout.Session`
+* Remove support for `ownership_declaration_shown_and_signed` on `Token#create.account`
+* Add support for `ownership_declaration_shown_and_signed` on `Token#create.account.company`
+
 ### 2021-11-01
 * Add support for `ownership_declaration` on `Account#update.company`, `Account#create.company`, `Account.company`, and `Token#create.account.company`
 * Add support for `proof_of_registration` on `Account#update.documents` and `Account#create.documents`
