@@ -2,6 +2,76 @@
 
 ## Changelog
 
+## 2022-05-06
+
+- Add support for `description` on `Checkout.Session#create.subscription_data`, `Subscription#create`, `Subscription#update`, and `Subscription`
+- Add support for new resource `FinancialConnections.AccountOwnership`
+- Remove support for resources `OrderItem` and `OrderReturn`
+- Add support for `cancel`, `list_line_items`, `reopen`, and `submit` methods on resource `Order`
+- Remove support for `pay` and `return_order` methods on resource `Order`
+- Remove support for `order` on `Charge`
+- Change type of `Charge.shipping.name`, `Checkout.Session.shipping.name`, `Customer.shipping.name`, `Invoice.customer_shipping.name`, `PaymentIntent.shipping.name`, `ShippingDetails.name`, and `Source.source_order.shipping.name` from `nullable(string)` to `string`
+- Change type of `FinancialConnections.Account.ownership` from `$Ownership` to `$FinancialConnections.AccountOwnership`
+- Add support for `id` and `object` on `FinancialConnections.AccountOwner`
+- Add support for `amount_discount`, `amount_tax`, and `product` on `LineItem`
+- Add support for `automatic_tax`, `billing_details`, `description`, `discounts`, `ip_address`, `line_items`, `payment`, `shipping_cost`, `shipping_details`, and `tax_details` on `Order#create`, `Order#update`, and `Order`
+- Remove support for `coupon` on `Order#create` and `Order#update`
+- Remove support for `email` and `items` on `Order#create` and `Order`
+- Remove support for `shipping` on `Order#create`, `Order#update`, and `Order`
+- Remove support for `created`, `ids`, and `upstream_ids` on `Order#list`
+- Remove support for `status` on `Order#list` and `Order#update`
+- Remove support for `status_transitions` on `Order#list` and `Order`
+- Add support for `currency` and `customer` on `Order#update`
+- Remove support for `selected_shipping_method` on `Order#update` and `Order`
+- Add support for `amount_subtotal`, `amount_total`, and `total_details` on `Order`
+- Remove support for `amount_returned`, `amount`, `application_fee`, `charge`, `external_coupon_code`, `returns`, `shipping_methods`, `updated`, and `upstream_id` on `Order`
+- Change type of `Order.application` from `string` to `expandable($Application)`
+- Change type of `Order.status` from `string` to `enum`
+- Add support for `instructions_email` on `Refund#create` and `Refund`
+- Add support for new resources `FinancialConnections.AccountOwner`, `FinancialConnections.Account`, and `FinancialConnections.Session`
+- Add support for `registered_address` on `Account#create.individual`, `Account#update.individual`, `Person#create`, `Person#update`, `Person`, `Token#create.account.individual`, and `Token#create.person`
+- Add support for `financial_connections` on `Checkout.Session#create.payment_method_options.us_bank_account`, `Checkout.Session.payment_method_options.us_bank_account`, `Invoice#create.payment_settings.payment_method_options.us_bank_account`, `Invoice#update.payment_settings.payment_method_options.us_bank_account`, `Invoice.payment_settings.payment_method_options.us_bank_account`, `PaymentIntent#confirm.payment_method_options.us_bank_account`, `PaymentIntent#create.payment_method_options.us_bank_account`, `PaymentIntent#update.payment_method_options.us_bank_account`, `PaymentIntent.payment_method_options.us_bank_account`, `SetupIntent#confirm.payment_method_options.us_bank_account`, `SetupIntent#create.payment_method_options.us_bank_account`, `SetupIntent#update.payment_method_options.us_bank_account`, `SetupIntent.payment_method_options.us_bank_account`, `Subscription#create.payment_settings.payment_method_options.us_bank_account`, `Subscription#update.payment_settings.payment_method_options.us_bank_account`, and `Subscription.payment_settings.payment_method_options.us_bank_account`
+- Add support for `financial_connections_account` on `PaymentIntent#confirm.payment_method_data.us_bank_account`, `PaymentIntent#create.payment_method_data.us_bank_account`, `PaymentIntent#update.payment_method_data.us_bank_account`, `PaymentMethod#create.us_bank_account`, `PaymentMethod.us_bank_account`, `SetupIntent#confirm.payment_method_data.us_bank_account`, `SetupIntent#create.payment_method_data.us_bank_account`, and `SetupIntent#update.payment_method_data.us_bank_account`
+- Add support for `default_price_data` on `Product#create`
+- Add support for `default_price` on `Product#update` and `Product`
+- Change type of `PaymentIntent.amount_details.tip.amount` from `nullable(integer)` to `integer`
+- Change `PaymentIntent.amount_details.tip.amount` to be optional
+- Add support for `payment_method_data` on `SetupIntent#confirm`, `SetupIntent#create`, and `SetupIntent#update`
+- Add support for new resource `CashBalance`
+- Add support for `cash_balance` on `Customer`
+- Add support for new value `eu_oss_vat` on enums `Checkout.Session.customer_details.tax_ids[].type`, `Invoice.customer_tax_ids[].type`, and `TaxId.type`
+- Add support for new value `eu_oss_vat` on enums `Customer#create.tax_id_data[].type`, `Invoice#upcoming.customer_details.tax_ids[].type`, `Invoice#upcomingLines.customer_details.tax_ids[].type`, and `TaxId#create.type`
+- Add support for `application` on `Invoice`, `Quote`, `SubscriptionSchedule`, and `Subscription`
+- Change type of `Checkout.Session#create.payment_method_options.konbini.expires_after_days` from `emptyStringable(integer)` to `integer`
+- Change type of `BillingPortal.Configuration.application` from `$Application` to `deletable($Application)`
+- Add support for `alipay` on `Checkout.Session#create.payment_method_options` and `Checkout.Session.payment_method_options`
+- Add support for `expire` test helper method on resource `Refund`
+- Change `Issuing.Dispute#create.transaction` to be optional
+- Add support for `create_funding_instructions` method on resource `Customer`
+- Remove support for `create` method on resource `FundingInstructions`
+- Change type of `BillingPortal.Configuration.application` from `string` to `expandable($Application)`
+- Remove support for `list` method on resource `FundingInstructions`
+- Add support for `amount_details` on `PaymentIntent`
+- Add support for `verifone_p400` on `Terminal.Configuration#create`, `Terminal.Configuration#update`, and `Terminal.Configuration`
+- Remove support for `verifone_P400` on `Terminal.Configuration#create`, `Terminal.Configuration#update`, and `Terminal.Configuration`
+- Add support for new resource `Terminal.Configuration`
+- Change type of `FundingInstructions.bank_transfer.financial_addresses[].supported_networks[]` and `PaymentIntent.next_action.display_bank_transfer_instructions.financial_addresses[].supported_networks[]` from `literal('zengin')` to `enum('sepa'|'zengin')`
+- Change type of `FundingInstructions.bank_transfer.financial_addresses[].type` and `PaymentIntent.next_action.display_bank_transfer_instructions.financial_addresses[].type` from `literal('zengin')` to `enum('iban'|'zengin')`
+- Change type of `FundingInstructions.bank_transfer.type` from `literal('jp_bank_transfer')` to `enum('eu_bank_transfer'|'jp_bank_transfer')`
+- Add support for `configuration_overrides` on `Terminal.Location#create`, `Terminal.Location#update`, and `Terminal.Location`
+- Add support for new resource `FundingInstructions`
+- Add support for `increment_authorization` method on resource `PaymentIntent`
+- Add support for `customer_balance` on `Charge.payment_method_details`, `PaymentIntent#confirm.payment_method_data`, `PaymentIntent#confirm.payment_method_options`, `PaymentIntent#create.payment_method_data`, `PaymentIntent#create.payment_method_options`, `PaymentIntent#update.payment_method_data`, `PaymentIntent#update.payment_method_options`, `PaymentIntent.payment_method_options`, `PaymentMethod#create`, and `PaymentMethod`
+- Add support for `incremental_authorization_supported` on `Charge.payment_method_details.card_present`
+- Add support for `cash_balance` on `Customer#create` and `Customer#update`
+- Add support for new value `customer_balance` on enums `Customer#list_payment_methods.type` and `PaymentMethod#list.type`
+- Add support for new value `customer_balance` on enums `PaymentIntent#confirm.payment_method_data.type`, `PaymentIntent#create.payment_method_data.type`, and `PaymentIntent#update.payment_method_data.type`
+- Add support for `request_incremental_authorization_support` on `PaymentIntent#confirm.payment_method_options.card_present`, `PaymentIntent#create.payment_method_options.card_present`, `PaymentIntent#update.payment_method_options.card_present`, and `PaymentIntent.payment_method_options.card_present`
+- Add support for `display_bank_transfer_instructions` on `PaymentIntent.next_action`
+- Add support for new value `customer_balance` on enum `PaymentMethod#create.type`
+- Add support for new value `customer_balance` on enum `PaymentMethod.type`
+- Add support for new value `cash_balance.funds_available` on enums `WebhookEndpoint#create.enabled_events[]` and `WebhookEndpoint#update.enabled_events[]`
+
 ## 2022-04-06
 
 - Add support for `apply_customer_balance` method on resource `PaymentIntent`
