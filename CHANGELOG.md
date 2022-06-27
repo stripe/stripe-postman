@@ -2,6 +2,149 @@
 
 ## Changelog
 
+## 2022-06-26
+
+- Add support for `hosted_regulatory_receipt_url` on `Treasury.ReceivedCredit` and `Treasury.ReceivedDebit`
+- Remove support for value `treasury.received_credit.reversed` from enums `WebhookEndpoint#create.enabled_events[]` and `WebhookEndpoint#update.enabled_events[]`
+- Add support for `capture_method` on `PaymentIntent#confirm` and `PaymentIntent#update`
+- Change `Price.custom_unit_amount` to be required
+- Add support for `reversal_details` on `Treasury.ReceivedCredit` and `Treasury.ReceivedDebit`
+- Add support for `debit_reversal` on `Treasury.ReceivedDebit.linked_flows`
+- Add support for `promptpay_payments` on `Account#create.capabilities`, `Account#update.capabilities`, and `Account.capabilities`
+- Add support for `promptpay` on `Charge.payment_method_details`, `PaymentIntent#confirm.payment_method_data`, `PaymentIntent#confirm.payment_method_options`, `PaymentIntent#create.payment_method_data`, `PaymentIntent#create.payment_method_options`, `PaymentIntent#update.payment_method_data`, `PaymentIntent#update.payment_method_options`, `PaymentIntent.payment_method_options`, `PaymentMethod#create`, `PaymentMethod`, `SetupIntent#confirm.payment_method_data`, `SetupIntent#create.payment_method_data`, and `SetupIntent#update.payment_method_data`
+- Add support for new value `promptpay` on enum `Checkout.Session#create.payment_method_types[]`
+- Add support for `subtotal_excluding_tax` on `CreditNote` and `Invoice`
+- Add support for `amount_excluding_tax` and `unit_amount_excluding_tax` on `CreditNoteLineItem` and `InvoiceLineItem`
+- Add support for new value `promptpay` on enums `Customer#list_payment_methods.type` and `PaymentMethod#list.type`
+- Add support for `rendering_options` on `Invoice#create` and `Invoice#update`
+- Add support for new value `promptpay` on enums `Invoice#create.payment_settings.payment_method_types[]`, `Invoice#update.payment_settings.payment_method_types[]`, `Invoice.payment_settings.payment_method_types[]`, `Subscription#create.payment_settings.payment_method_types[]`, `Subscription#update.payment_settings.payment_method_types[]`, and `Subscription.payment_settings.payment_method_types[]`
+- Add support for `total_excluding_tax` on `Invoice`
+- Add support for `automatic_payment_methods` on `Order.payment.settings`
+- Add support for new value `promptpay` on enums `PaymentIntent#confirm.payment_method_data.type`, `PaymentIntent#create.payment_method_data.type`, `PaymentIntent#update.payment_method_data.type`, `SetupIntent#confirm.payment_method_data.type`, `SetupIntent#create.payment_method_data.type`, and `SetupIntent#update.payment_method_data.type`
+- Add support for `promptpay_display_qr_code` on `PaymentIntent.next_action`
+- Add support for new value `promptpay` on enum `PaymentMethod#create.type`
+- Add support for new value `promptpay` on enum `PaymentMethod.type`
+- Add support for `fund_cash_balance` test helper method on resource `Customer`
+- Remove support for `fund_cash_balance` test helper method on resource `CustomerBalanceTransaction`
+- Remove support for `list_funding_instructions` method on resource `Customer`
+- Add support for `fund_cash_balance` test helper method on resource `CustomerBalanceTransaction`
+- Remove support for `subtotal_excluding_tax` on `CreditNote` and `Invoice`
+- Remove support for `amount_excluding_tax` and `unit_amount_excluding_tax` on `CreditNoteLineItem` and `InvoiceLineItem`
+- Remove support for `rendering_options` on `Invoice#create` and `Invoice#update`
+- Remove support for `total_excluding_tax` on `Invoice`
+- Add support for `list_funding_instructions` method on resource `Customer`
+- Add support for `statement_descriptor_prefix_kana` and `statement_descriptor_prefix_kanji` on `Account#create.settings.card_payments`, `Account#update.settings.card_payments`, `Account.settings.card_payments`, and `Account.settings.payments`
+- Add support for `statement_descriptor_suffix_kana` and `statement_descriptor_suffix_kanji` on `Checkout.Session#create.payment_method_options.card`, `Checkout.Session.payment_method_options.card`, `PaymentIntent#confirm.payment_method_options.card`, `PaymentIntent#create.payment_method_options.card`, `PaymentIntent#update.payment_method_options.card`, and `PaymentIntent.payment_method_options.card`
+- Add support for `subtotal_excluding_tax` and `total_excluding_tax` on `CreditNote` and `Invoice`
+- Add support for `amount_excluding_tax` and `unit_amount_excluding_tax` on `CreditNoteLineItem` and `InvoiceLineItem`
+- Add support for `rendering_options` on `Customer.invoice_settings`, `Invoice#create`, `Invoice#update`, and `Invoice`
+- No differences
+- Change type of `Customer#create.invoice_settings.rendering_options` and `Customer#update.invoice_settings.rendering_options` from `rendering_options_param` to `emptyStringable(rendering_options_param)`
+- Add support for `treasury` on `Account#create.settings`, `Account#update.settings`, and `Account.settings`
+- Add support for `rendering_options` on `Customer#create.invoice_settings` and `Customer#update.invoice_settings`
+- Add support for `custom_unit_amount` on `Price#create` and `Price`
+- Remove support for `installments` on `Checkout.Session.payment_method_options.card`
+- Add support for `eu_bank_transfer` on `Customer#create_funding_instructions.bank_transfer`, `Invoice#create.payment_settings.payment_method_options.customer_balance.bank_transfer`, `Invoice#update.payment_settings.payment_method_options.customer_balance.bank_transfer`, `Invoice.payment_settings.payment_method_options.customer_balance.bank_transfer`, `Order#create.payment.settings.payment_method_options.customer_balance.bank_transfer`, `Order#update.payment.settings.payment_method_options.customer_balance.bank_transfer`, `Order.payment.settings.payment_method_options.customer_balance.bank_transfer`, `PaymentIntent#confirm.payment_method_options.customer_balance.bank_transfer`, `PaymentIntent#create.payment_method_options.customer_balance.bank_transfer`, `PaymentIntent#update.payment_method_options.customer_balance.bank_transfer`, `PaymentIntent.payment_method_options.customer_balance.bank_transfer`, `Subscription#create.payment_settings.payment_method_options.customer_balance.bank_transfer`, `Subscription#update.payment_settings.payment_method_options.customer_balance.bank_transfer`, and `Subscription.payment_settings.payment_method_options.customer_balance.bank_transfer`
+- Change type of `Customer#create_funding_instructions.bank_transfer.requested_address_types[]` from `literal('zengin')` to `enum('iban'|'sort_code'|'spei'|'zengin')`
+- Change type of `Customer#create_funding_instructions.bank_transfer.type`, `Order#create.payment.settings.payment_method_options.customer_balance.bank_transfer.type`, `Order#update.payment.settings.payment_method_options.customer_balance.bank_transfer.type`, `Order.payment.settings.payment_method_options.customer_balance.bank_transfer.type`, `PaymentIntent#confirm.payment_method_options.customer_balance.bank_transfer.type`, `PaymentIntent#create.payment_method_options.customer_balance.bank_transfer.type`, `PaymentIntent#update.payment_method_options.customer_balance.bank_transfer.type`, `PaymentIntent.next_action.display_bank_transfer_instructions.type`, and `PaymentIntent.payment_method_options.customer_balance.bank_transfer.type` from `literal('jp_bank_transfer')` to `enum('eu_bank_transfer'|'gb_bank_transfer'|'jp_bank_transfer'|'mx_bank_transfer')`
+- Add support for `iban`, `sort_code`, and `spei` on `FundingInstructions.bank_transfer.financial_addresses[]` and `PaymentIntent.next_action.display_bank_transfer_instructions.financial_addresses[]`
+- Add support for new values `bacs`, `fps`, and `spei` on enums `FundingInstructions.bank_transfer.financial_addresses[].supported_networks[]` and `PaymentIntent.next_action.display_bank_transfer_instructions.financial_addresses[].supported_networks[]`
+- Add support for new values `sort_code` and `spei` on enums `FundingInstructions.bank_transfer.financial_addresses[].type` and `PaymentIntent.next_action.display_bank_transfer_instructions.financial_addresses[].type`
+- Change type of `Order#create.payment.settings.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `Order#update.payment.settings.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `Order.payment.settings.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `PaymentIntent#confirm.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `PaymentIntent#create.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `PaymentIntent#update.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, and `PaymentIntent.payment_method_options.customer_balance.bank_transfer.requested_address_types[]` from `literal('zengin')` to `enum`
+- Add support for `attach_to_self` on `SetupAttempt`, `SetupIntent#create`, `SetupIntent#list`, and `SetupIntent#update`
+- Add support for `flow_directions` on `SetupAttempt`, `SetupIntent#create`, and `SetupIntent#update`
+- Add support for `affirm`, `afterpay_clearpay`, `au_becs_debit`, `bacs_debit`, `bancontact`, `eps`, `fpx`, `giropay`, `grabpay`, `ideal`, `klarna`, `p24`, `paynow`, `sepa_debit`, and `sofort` on `Checkout.Session#create.payment_method_options`
+- Add support for `card` on `Checkout.Session#create.payment_method_options` and `Checkout.Session.payment_method_options`
+- Add support for `setup_future_usage` on `Checkout.Session#create.payment_method_options.acss_debit`, `Checkout.Session#create.payment_method_options.alipay`, `Checkout.Session#create.payment_method_options.boleto`, `Checkout.Session#create.payment_method_options.konbini`, `Checkout.Session#create.payment_method_options.oxxo`, `Checkout.Session#create.payment_method_options.us_bank_account`, `Checkout.Session#create.payment_method_options.wechat_pay`, `Checkout.Session.payment_method_options.acss_debit`, `Checkout.Session.payment_method_options.affirm`, `Checkout.Session.payment_method_options.afterpay_clearpay`, `Checkout.Session.payment_method_options.alipay`, `Checkout.Session.payment_method_options.au_becs_debit`, `Checkout.Session.payment_method_options.bacs_debit`, `Checkout.Session.payment_method_options.bancontact`, `Checkout.Session.payment_method_options.boleto`, `Checkout.Session.payment_method_options.eps`, `Checkout.Session.payment_method_options.fpx`, `Checkout.Session.payment_method_options.giropay`, `Checkout.Session.payment_method_options.grabpay`, `Checkout.Session.payment_method_options.ideal`, `Checkout.Session.payment_method_options.klarna`, `Checkout.Session.payment_method_options.konbini`, `Checkout.Session.payment_method_options.oxxo`, `Checkout.Session.payment_method_options.p24`, `Checkout.Session.payment_method_options.paynow`, `Checkout.Session.payment_method_options.sepa_debit`, `Checkout.Session.payment_method_options.sofort`, and `Checkout.Session.payment_method_options.us_bank_account`
+- Remove support for `eu_bank_transfer` on `Customer#create_funding_instructions.bank_transfer`, `Invoice#create.payment_settings.payment_method_options.customer_balance.bank_transfer`, `Invoice#update.payment_settings.payment_method_options.customer_balance.bank_transfer`, `Invoice.payment_settings.payment_method_options.customer_balance.bank_transfer`, `Order#create.payment.settings.payment_method_options.customer_balance.bank_transfer`, `Order#update.payment.settings.payment_method_options.customer_balance.bank_transfer`, `Order.payment.settings.payment_method_options.customer_balance.bank_transfer`, `PaymentIntent#confirm.payment_method_options.customer_balance.bank_transfer`, `PaymentIntent#create.payment_method_options.customer_balance.bank_transfer`, `PaymentIntent#update.payment_method_options.customer_balance.bank_transfer`, `PaymentIntent.payment_method_options.customer_balance.bank_transfer`, `Subscription#create.payment_settings.payment_method_options.customer_balance.bank_transfer`, `Subscription#update.payment_settings.payment_method_options.customer_balance.bank_transfer`, and `Subscription.payment_settings.payment_method_options.customer_balance.bank_transfer`
+- Change type of `Customer#create_funding_instructions.bank_transfer.requested_address_types[]` from `enum('iban'|'sort_code'|'spei'|'zengin')` to `literal('zengin')`
+- Change type of `Customer#create_funding_instructions.bank_transfer.type`, `Order#create.payment.settings.payment_method_options.customer_balance.bank_transfer.type`, `Order#update.payment.settings.payment_method_options.customer_balance.bank_transfer.type`, `Order.payment.settings.payment_method_options.customer_balance.bank_transfer.type`, `PaymentIntent#confirm.payment_method_options.customer_balance.bank_transfer.type`, `PaymentIntent#create.payment_method_options.customer_balance.bank_transfer.type`, `PaymentIntent#update.payment_method_options.customer_balance.bank_transfer.type`, `PaymentIntent.next_action.display_bank_transfer_instructions.type`, and `PaymentIntent.payment_method_options.customer_balance.bank_transfer.type` from `enum('eu_bank_transfer'|'gb_bank_transfer'|'jp_bank_transfer'|'mx_bank_transfer')` to `literal('jp_bank_transfer')`
+- Remove support for `iban`, `sort_code`, and `spei` on `FundingInstructions.bank_transfer.financial_addresses[]` and `PaymentIntent.next_action.display_bank_transfer_instructions.financial_addresses[]`
+- Remove support for values `bacs`, `fps`, and `spei` from enums `FundingInstructions.bank_transfer.financial_addresses[].supported_networks[]` and `PaymentIntent.next_action.display_bank_transfer_instructions.financial_addresses[].supported_networks[]`
+- Remove support for values `sort_code` and `spei` from enums `FundingInstructions.bank_transfer.financial_addresses[].type` and `PaymentIntent.next_action.display_bank_transfer_instructions.financial_addresses[].type`
+- Change type of `Order#create.payment.settings.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `Order#update.payment.settings.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `Order.payment.settings.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `PaymentIntent#confirm.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `PaymentIntent#create.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `PaymentIntent#update.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, and `PaymentIntent.payment_method_options.customer_balance.bank_transfer.requested_address_types[]` from `enum` to `literal('zengin')`
+- Change `PaymentMethod.us_bank_account.networks` and `SetupIntent.flow_directions` to be required
+- Add support for `affirm` on `Checkout.Session.payment_method_options`
+- Add support for `bancontact`, `ideal`, `p24`, and `sofort` on `Checkout.Session.payment_method_options`
+- Add support for `eu_bank_transfer` on `Customer#create_funding_instructions.bank_transfer`, `Invoice#create.payment_settings.payment_method_options.customer_balance.bank_transfer`, `Invoice#update.payment_settings.payment_method_options.customer_balance.bank_transfer`, `Invoice.payment_settings.payment_method_options.customer_balance.bank_transfer`, `Order#create.payment.settings.payment_method_options.customer_balance.bank_transfer`, `Order#update.payment.settings.payment_method_options.customer_balance.bank_transfer`, `Order.payment.settings.payment_method_options.customer_balance.bank_transfer`, `PaymentIntent#confirm.payment_method_options.customer_balance.bank_transfer`, `PaymentIntent#create.payment_method_options.customer_balance.bank_transfer`, `PaymentIntent#update.payment_method_options.customer_balance.bank_transfer`, `PaymentIntent.payment_method_options.customer_balance.bank_transfer`, `Subscription#create.payment_settings.payment_method_options.customer_balance.bank_transfer`, `Subscription#update.payment_settings.payment_method_options.customer_balance.bank_transfer`, and `Subscription.payment_settings.payment_method_options.customer_balance.bank_transfer`
+- Change type of `Customer#create_funding_instructions.bank_transfer.requested_address_types[]` from `literal('zengin')` to `enum('iban'|'sort_code'|'spei'|'zengin')`
+- Change type of `Customer#create_funding_instructions.bank_transfer.type`, `Order#create.payment.settings.payment_method_options.customer_balance.bank_transfer.type`, `Order#update.payment.settings.payment_method_options.customer_balance.bank_transfer.type`, `Order.payment.settings.payment_method_options.customer_balance.bank_transfer.type`, `PaymentIntent#confirm.payment_method_options.customer_balance.bank_transfer.type`, `PaymentIntent#create.payment_method_options.customer_balance.bank_transfer.type`, `PaymentIntent#update.payment_method_options.customer_balance.bank_transfer.type`, `PaymentIntent.next_action.display_bank_transfer_instructions.type`, and `PaymentIntent.payment_method_options.customer_balance.bank_transfer.type` from `literal('jp_bank_transfer')` to `enum('eu_bank_transfer'|'gb_bank_transfer'|'jp_bank_transfer'|'mx_bank_transfer')`
+- Add support for `iban`, `sort_code`, and `spei` on `FundingInstructions.bank_transfer.financial_addresses[]` and `PaymentIntent.next_action.display_bank_transfer_instructions.financial_addresses[]`
+- Add support for new values `bacs`, `fps`, and `spei` on enums `FundingInstructions.bank_transfer.financial_addresses[].supported_networks[]` and `PaymentIntent.next_action.display_bank_transfer_instructions.financial_addresses[].supported_networks[]`
+- Add support for new values `sort_code` and `spei` on enums `FundingInstructions.bank_transfer.financial_addresses[].type` and `PaymentIntent.next_action.display_bank_transfer_instructions.financial_addresses[].type`
+- Change type of `Order#create.payment.settings.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `Order#update.payment.settings.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `Order.payment.settings.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `PaymentIntent#confirm.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `PaymentIntent#create.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, `PaymentIntent#update.payment_method_options.customer_balance.bank_transfer.requested_address_types[]`, and `PaymentIntent.payment_method_options.customer_balance.bank_transfer.requested_address_types[]` from `literal('zengin')` to `enum`
+- Add support for `radar_options` on `Charge#create`, `Charge`, `PaymentIntent#confirm.payment_method_data`, `PaymentIntent#confirm`, `PaymentIntent#create.payment_method_data`, `PaymentIntent#create`, `PaymentIntent#update.payment_method_data`, `PaymentMethod#create`, `PaymentMethod`, `SetupIntent#confirm.payment_method_data`, `SetupIntent#create.payment_method_data`, and `SetupIntent#update.payment_method_data`
+
+## 2022-05-06
+
+- Add support for `description` on `Checkout.Session#create.subscription_data`, `Subscription#create`, `Subscription#update`, and `Subscription`
+- Add support for new resource `FinancialConnections.AccountOwnership`
+- Remove support for resources `OrderItem` and `OrderReturn`
+- Add support for `cancel`, `list_line_items`, `reopen`, and `submit` methods on resource `Order`
+- Remove support for `pay` and `return_order` methods on resource `Order`
+- Remove support for `order` on `Charge`
+- Change type of `Charge.shipping.name`, `Checkout.Session.shipping.name`, `Customer.shipping.name`, `Invoice.customer_shipping.name`, `PaymentIntent.shipping.name`, `ShippingDetails.name`, and `Source.source_order.shipping.name` from `nullable(string)` to `string`
+- Change type of `FinancialConnections.Account.ownership` from `$Ownership` to `$FinancialConnections.AccountOwnership`
+- Add support for `id` and `object` on `FinancialConnections.AccountOwner`
+- Add support for `amount_discount`, `amount_tax`, and `product` on `LineItem`
+- Add support for `automatic_tax`, `billing_details`, `description`, `discounts`, `ip_address`, `line_items`, `payment`, `shipping_cost`, `shipping_details`, and `tax_details` on `Order#create`, `Order#update`, and `Order`
+- Remove support for `coupon` on `Order#create` and `Order#update`
+- Remove support for `email` and `items` on `Order#create` and `Order`
+- Remove support for `shipping` on `Order#create`, `Order#update`, and `Order`
+- Remove support for `created`, `ids`, and `upstream_ids` on `Order#list`
+- Remove support for `status` on `Order#list` and `Order#update`
+- Remove support for `status_transitions` on `Order#list` and `Order`
+- Add support for `currency` and `customer` on `Order#update`
+- Remove support for `selected_shipping_method` on `Order#update` and `Order`
+- Add support for `amount_subtotal`, `amount_total`, and `total_details` on `Order`
+- Remove support for `amount_returned`, `amount`, `application_fee`, `charge`, `external_coupon_code`, `returns`, `shipping_methods`, `updated`, and `upstream_id` on `Order`
+- Change type of `Order.application` from `string` to `expandable($Application)`
+- Change type of `Order.status` from `string` to `enum`
+- Add support for `instructions_email` on `Refund#create` and `Refund`
+- Add support for new resources `FinancialConnections.AccountOwner`, `FinancialConnections.Account`, and `FinancialConnections.Session`
+- Add support for `registered_address` on `Account#create.individual`, `Account#update.individual`, `Person#create`, `Person#update`, `Person`, `Token#create.account.individual`, and `Token#create.person`
+- Add support for `financial_connections` on `Checkout.Session#create.payment_method_options.us_bank_account`, `Checkout.Session.payment_method_options.us_bank_account`, `Invoice#create.payment_settings.payment_method_options.us_bank_account`, `Invoice#update.payment_settings.payment_method_options.us_bank_account`, `Invoice.payment_settings.payment_method_options.us_bank_account`, `PaymentIntent#confirm.payment_method_options.us_bank_account`, `PaymentIntent#create.payment_method_options.us_bank_account`, `PaymentIntent#update.payment_method_options.us_bank_account`, `PaymentIntent.payment_method_options.us_bank_account`, `SetupIntent#confirm.payment_method_options.us_bank_account`, `SetupIntent#create.payment_method_options.us_bank_account`, `SetupIntent#update.payment_method_options.us_bank_account`, `SetupIntent.payment_method_options.us_bank_account`, `Subscription#create.payment_settings.payment_method_options.us_bank_account`, `Subscription#update.payment_settings.payment_method_options.us_bank_account`, and `Subscription.payment_settings.payment_method_options.us_bank_account`
+- Add support for `financial_connections_account` on `PaymentIntent#confirm.payment_method_data.us_bank_account`, `PaymentIntent#create.payment_method_data.us_bank_account`, `PaymentIntent#update.payment_method_data.us_bank_account`, `PaymentMethod#create.us_bank_account`, `PaymentMethod.us_bank_account`, `SetupIntent#confirm.payment_method_data.us_bank_account`, `SetupIntent#create.payment_method_data.us_bank_account`, and `SetupIntent#update.payment_method_data.us_bank_account`
+- Add support for `default_price_data` on `Product#create`
+- Add support for `default_price` on `Product#update` and `Product`
+- Change type of `PaymentIntent.amount_details.tip.amount` from `nullable(integer)` to `integer`
+- Change `PaymentIntent.amount_details.tip.amount` to be optional
+- Add support for `payment_method_data` on `SetupIntent#confirm`, `SetupIntent#create`, and `SetupIntent#update`
+- Add support for new resource `CashBalance`
+- Add support for `cash_balance` on `Customer`
+- Add support for new value `eu_oss_vat` on enums `Checkout.Session.customer_details.tax_ids[].type`, `Invoice.customer_tax_ids[].type`, and `TaxId.type`
+- Add support for new value `eu_oss_vat` on enums `Customer#create.tax_id_data[].type`, `Invoice#upcoming.customer_details.tax_ids[].type`, `Invoice#upcomingLines.customer_details.tax_ids[].type`, and `TaxId#create.type`
+- Add support for `application` on `Invoice`, `Quote`, `SubscriptionSchedule`, and `Subscription`
+- Change type of `Checkout.Session#create.payment_method_options.konbini.expires_after_days` from `emptyStringable(integer)` to `integer`
+- Change type of `BillingPortal.Configuration.application` from `$Application` to `deletable($Application)`
+- Add support for `alipay` on `Checkout.Session#create.payment_method_options` and `Checkout.Session.payment_method_options`
+- Add support for `expire` test helper method on resource `Refund`
+- Change `Issuing.Dispute#create.transaction` to be optional
+- Add support for `create_funding_instructions` method on resource `Customer`
+- Remove support for `create` method on resource `FundingInstructions`
+- Change type of `BillingPortal.Configuration.application` from `string` to `expandable($Application)`
+- Remove support for `list` method on resource `FundingInstructions`
+- Add support for `amount_details` on `PaymentIntent`
+- Add support for `verifone_p400` on `Terminal.Configuration#create`, `Terminal.Configuration#update`, and `Terminal.Configuration`
+- Remove support for `verifone_P400` on `Terminal.Configuration#create`, `Terminal.Configuration#update`, and `Terminal.Configuration`
+- Add support for new resource `Terminal.Configuration`
+- Change type of `FundingInstructions.bank_transfer.financial_addresses[].supported_networks[]` and `PaymentIntent.next_action.display_bank_transfer_instructions.financial_addresses[].supported_networks[]` from `literal('zengin')` to `enum('sepa'|'zengin')`
+- Change type of `FundingInstructions.bank_transfer.financial_addresses[].type` and `PaymentIntent.next_action.display_bank_transfer_instructions.financial_addresses[].type` from `literal('zengin')` to `enum('iban'|'zengin')`
+- Change type of `FundingInstructions.bank_transfer.type` from `literal('jp_bank_transfer')` to `enum('eu_bank_transfer'|'jp_bank_transfer')`
+- Add support for `configuration_overrides` on `Terminal.Location#create`, `Terminal.Location#update`, and `Terminal.Location`
+- Add support for new resource `FundingInstructions`
+- Add support for `increment_authorization` method on resource `PaymentIntent`
+- Add support for `customer_balance` on `Charge.payment_method_details`, `PaymentIntent#confirm.payment_method_data`, `PaymentIntent#confirm.payment_method_options`, `PaymentIntent#create.payment_method_data`, `PaymentIntent#create.payment_method_options`, `PaymentIntent#update.payment_method_data`, `PaymentIntent#update.payment_method_options`, `PaymentIntent.payment_method_options`, `PaymentMethod#create`, and `PaymentMethod`
+- Add support for `incremental_authorization_supported` on `Charge.payment_method_details.card_present`
+- Add support for `cash_balance` on `Customer#create` and `Customer#update`
+- Add support for new value `customer_balance` on enums `Customer#list_payment_methods.type` and `PaymentMethod#list.type`
+- Add support for new value `customer_balance` on enums `PaymentIntent#confirm.payment_method_data.type`, `PaymentIntent#create.payment_method_data.type`, and `PaymentIntent#update.payment_method_data.type`
+- Add support for `request_incremental_authorization_support` on `PaymentIntent#confirm.payment_method_options.card_present`, `PaymentIntent#create.payment_method_options.card_present`, `PaymentIntent#update.payment_method_options.card_present`, and `PaymentIntent.payment_method_options.card_present`
+- Add support for `display_bank_transfer_instructions` on `PaymentIntent.next_action`
+- Add support for new value `customer_balance` on enum `PaymentMethod#create.type`
+- Add support for new value `customer_balance` on enum `PaymentMethod.type`
+- Add support for new value `cash_balance.funds_available` on enums `WebhookEndpoint#create.enabled_events[]` and `WebhookEndpoint#update.enabled_events[]`
+
 ## 2022-04-06
 
 - Add support for `apply_customer_balance` method on resource `PaymentIntent`
