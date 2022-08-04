@@ -2,6 +2,58 @@
 
 ## Changelog
 
+## 2022-08-04
+
+- Remove support for resources `AlipayAccount`, `BitcoinReceiver`, `BitcoinTransaction`, `IssuerFraudRecord`, `Recipient`, and `ThreeDSecure`
+- Add support for `list_line_items` method on resource `Checkout.Session`
+- Remove support for `list` method on resource `LineItem`
+- Add support for new value `invalid_tos_acceptance` on enums `Account.future_requirements.errors[].code`, `Account.requirements.errors[].code`, `Capability.future_requirements.errors[].code`, `Capability.requirements.errors[].code`, `Person.future_requirements.errors[].code`, and `Person.requirements.errors[].code`
+- Remove support for `recipient` on `Card`
+- Add support for `shipping_cost` and `shipping_details` on `Checkout.Session`
+- Remove support for `shipping_rate` and `shipping` on `Checkout.Session`
+- Add support for `validate` on `Customer#create`, `Customer#update`, and `PaymentSource#create`
+- Remove support for `trial_end` on `Customer#update`
+- Remove support for `default_currency` on `Customer`
+- Add support for new value `design_rejected` on enum `Issuing.Card.cancellation_reason`
+- Remove support for `redirect_url` on `LoginLink#create`
+- Add support for new value `2022-08-01` on enum `WebhookEndpoint#create.api_version`
+- Remove support for values `order.payment_failed`, `order.payment_succeeded`, `order.updated`, `order_return.created`, `transfer.failed`, and `transfer.paid` from enums `WebhookEndpoint#create.enabled_events[]` and `WebhookEndpoint#update.enabled_events[]`
+- Add support for `customer_balance` on `Checkout.Session#create.payment_method_options` and `Checkout.Session.payment_method_options`
+- Add support for new value `customer_balance` on enum `Checkout.Session#create.payment_method_types[]`
+- Add support for new values `en-CA` and `fr-CA` on enums `Order#create.payment.settings.payment_method_options.klarna.preferred_locale`, `Order#update.payment.settings.payment_method_options.klarna.preferred_locale`, `PaymentIntent#confirm.payment_method_options.klarna.preferred_locale`, `PaymentIntent#create.payment_method_options.klarna.preferred_locale`, and `PaymentIntent#update.payment_method_options.klarna.preferred_locale`
+- Add support for new value `exempted` on enums `Charge.payment_method_details.card.three_d_secure.result` and `SetupAttempt.payment_method_details.card.three_d_secure.result`
+- Remove support for resource `InstallmentsOptions`
+- Add support for `installments` on `Invoice.payment_settings.payment_method_options.card`
+- Add support for new resource `InstallmentsOptions`
+- Add support for `installments` on `Checkout.Session#create.payment_method_options.card`, `Checkout.Session.payment_method_options.card`, `Invoice#create.payment_settings.payment_method_options.card`, `Invoice#update.payment_settings.payment_method_options.card`, and `PaymentIntentTypeSpecificPaymentMethodOptionsClient`
+- Add support for `default_mandate` on `Invoice#create.payment_settings`, `Invoice#update.payment_settings`, and `Invoice.payment_settings`
+- Add support for `mandate` on `Invoice#pay`
+- Add support for `product_data` on `Order#create.line_items[]` and `Order#update.line_items[]`
+- Add support for `default_currency` and `invoice_credit_balance` on `Customer`
+- Add support for `currency` on `Invoice#create`
+- Add support for `blik_payments` on `Account#create.capabilities`, `Account#update.capabilities`, and `Account.capabilities`
+- Add support for `blik` on `Charge.payment_method_details`, `Mandate.payment_method_details`, `PaymentIntent#confirm.payment_method_data`, `PaymentIntent#confirm.payment_method_options`, `PaymentIntent#create.payment_method_data`, `PaymentIntent#create.payment_method_options`, `PaymentIntent#update.payment_method_data`, `PaymentIntent#update.payment_method_options`, `PaymentIntent.payment_method_options`, `PaymentMethod#create`, `PaymentMethod#update`, `PaymentMethod`, `SetupAttempt.payment_method_details`, `SetupIntent#confirm.payment_method_data`, `SetupIntent#confirm.payment_method_options`, `SetupIntent#create.payment_method_data`, `SetupIntent#create.payment_method_options`, `SetupIntent#update.payment_method_data`, `SetupIntent#update.payment_method_options`, and `SetupIntent.payment_method_options`
+- Add support for new value `blik` on enum `Checkout.Session#create.payment_method_types[]`
+- Add support for new value `blik` on enums `Customer#list_payment_methods.type` and `PaymentMethod#list.type`
+- Add support for new value `blik` on enums `PaymentIntent#confirm.payment_method_data.type`, `PaymentIntent#create.payment_method_data.type`, `PaymentIntent#update.payment_method_data.type`, `SetupIntent#confirm.payment_method_data.type`, `SetupIntent#create.payment_method_data.type`, and `SetupIntent#update.payment_method_data.type`
+- Add support for new value `blik` on enums `PaymentLink#create.payment_method_types[]`, `PaymentLink#update.payment_method_types[]`, and `PaymentLink.payment_method_types[]`
+- Add support for new value `blik` on enum `PaymentMethod#create.type`
+- Add support for new value `blik` on enum `PaymentMethod.type`
+- Change type of `Checkout.Session#create.consent_collection.promotions`, `Checkout.Session.consent_collection.promotions`, `PaymentLink#create.consent_collection.promotions`, and `PaymentLink.consent_collection.promotions` from `literal('auto')` to `enum('auto'|'none')`
+- Change type of `Transfer.source_type` from `nullable(string)` to `string`
+- Change `Transfer.source_type` to be optional
+- Add support for `customer_details` on `Checkout.Session#list`
+- Add support for `currency` on `Checkout.Session#create`, `Invoice#upcomingLines`, `Invoice#upcoming`, `PaymentLink#create`, `Subscription#create`, `SubscriptionSchedule#create.phases[]`, `SubscriptionSchedule#update.phases[]`, `SubscriptionSchedule.phases[]`, and `Subscription`
+- Add support for `currency_options` on `Checkout.Session#create.shipping_options[].shipping_rate_data.fixed_amount`, `Coupon#create`, `Coupon#update`, `Coupon`, `Order#create.shipping_cost.shipping_rate_data.fixed_amount`, `Order#update.shipping_cost.shipping_rate_data.fixed_amount`, `Price#create`, `Price#update`, `Price`, `Product#create.default_price_data`, `PromotionCode#create.restrictions`, `PromotionCode.restrictions`, `ShippingRate#create.fixed_amount`, and `ShippingRate.fixed_amount`
+- Change `LineItem.amount_discount` and `LineItem.amount_tax` to be required
+- Add support for `restrictions` on `PromotionCode#update`
+- Add support for `fixed_amount` and `tax_behavior` on `ShippingRate#update`
+- Add support for `currency`, `customer`, and `origin` on `Refund#create`
+- Add support for `customer` on `Checkout.Session#list`
+- Add support for new values `financial_connections.account.created`, `financial_connections.account.deactivated`, `financial_connections.account.disconnected`, `financial_connections.account.reactivated`, and `financial_connections.account.refreshed_balance` on enums `WebhookEndpoint#create.enabled_events[]` and `WebhookEndpoint#update.enabled_events[]`
+- Add support for `deliver_card`, `fail_card`, `return_card`, and `ship_card` test helper methods on resource `Issuing.Card`
+- Change type of `PaymentLink#create.payment_method_types[]`, `PaymentLink#update.payment_method_types[]`, and `PaymentLink.payment_method_types[]` from `literal('card')` to `enum`
+
 ## 2022-06-26
 
 - Add support for `hosted_regulatory_receipt_url` on `Treasury.ReceivedCredit` and `Treasury.ReceivedDebit`
