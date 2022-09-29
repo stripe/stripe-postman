@@ -2,6 +2,39 @@
 
 ## Changelog
 
+## 2022-09-29
+
+* Add support for `created` on `Checkout.Session`
+* Change type of `Charge.payment_method_details.card_present.incremental_authorization_supported` and `Charge.payment_method_details.card_present.overcapture_supported` from `nullable(boolean)` to `boolean`
+* Add support for `setup_future_usage` on `PaymentIntent#confirm.payment_method_options.pix`, `PaymentIntent#create.payment_method_options.pix`, `PaymentIntent#update.payment_method_options.pix`, and `PaymentIntent.payment_method_options.pix`
+* Add support for `statement_descriptor` on `PaymentIntent#increment_authorization`
+* Release specs are identical.
+* Add support for `terms_of_service` on `Checkout.Session#create.consent_collection`, `Checkout.Session.consent_collection`, `Checkout.Session.consent`, `PaymentLink#create.consent_collection`, and `PaymentLink.consent_collection`
+* Remove support for `plan` on `Checkout.Session#create.payment_method_options.card.installments`
+* Change `SubscriptionSchedule.phases[].currency` to be required
+* Add support for `amount` on `Issuing.Dispute#create` and `Issuing.Dispute#update`
+* Add support for `created` on `Treasury.CreditReversal`
+* Add support for `pix` on `Charge.payment_method_details`, `Checkout.Session#create.payment_method_options`, `Checkout.Session.payment_method_options`, `PaymentIntent#confirm.payment_method_data`, `PaymentIntent#confirm.payment_method_options`, `PaymentIntent#create.payment_method_data`, `PaymentIntent#create.payment_method_options`, `PaymentIntent#update.payment_method_data`, `PaymentIntent#update.payment_method_options`, `PaymentIntent.payment_method_options`, `PaymentMethod#create`, `PaymentMethod`, `SetupIntent#confirm.payment_method_data`, `SetupIntent#create.payment_method_data`, and `SetupIntent#update.payment_method_data`
+* Add support for new value `pix` on enum `Checkout.Session#create.payment_method_types[]`
+* Add support for new value `pix` on enums `Customer#list_payment_methods.type` and `PaymentMethod#list.type`
+* Add support for `from_invoice` on `Invoice#create` and `Invoice`
+* Add support for `latest_revision` on `Invoice`
+* Add support for new value `pix` on enums `PaymentIntent#confirm.payment_method_data.type`, `PaymentIntent#create.payment_method_data.type`, `PaymentIntent#update.payment_method_data.type`, `SetupIntent#confirm.payment_method_data.type`, `SetupIntent#create.payment_method_data.type`, and `SetupIntent#update.payment_method_data.type`
+* Add support for `pix_display_qr_code` on `PaymentIntent.next_action`
+* Add support for new value `pix` on enums `PaymentLink#create.payment_method_types[]`, `PaymentLink#update.payment_method_types[]`, and `PaymentLink.payment_method_types[]`
+* Add support for new value `pix` on enum `PaymentMethod#create.type`
+* Add support for new value `pix` on enum `PaymentMethod.type`
+* Add support for `created` on `Treasury.DebitReversal`
+* Add support for `require_signature` on `Issuing.Card#create.shipping` and `Issuing.Card.shipping`
+* Release specs are identical.
+* Add support for new value `terminal_reader_splashscreen` on enums `File#list.purpose` and `File.purpose`
+* Add support for new values `de-CH`, `en-CH`, `en-PL`, `en-PT`, `fr-CH`, `it-CH`, `pl-PL`, and `pt-PT` on enums `Order#create.payment.settings.payment_method_options.klarna.preferred_locale`, `Order#update.payment.settings.payment_method_options.klarna.preferred_locale`, `PaymentIntent#confirm.payment_method_options.klarna.preferred_locale`, `PaymentIntent#create.payment_method_options.klarna.preferred_locale`, and `PaymentIntent#update.payment_method_options.klarna.preferred_locale`
+* Add support for `description` on `PaymentLink#create.subscription_data` and `PaymentLink.subscription_data`
+* Change `Account.company.name`, `Charge.refunds`, `PaymentIntent.charges`, `Product.caption`, `Product.statement_descriptor`, `Product.unit_label`, `Terminal.Configuration.tipping.aud.fixed_amounts`, `Terminal.Configuration.tipping.aud.percentages`, `Terminal.Configuration.tipping.cad.fixed_amounts`, `Terminal.Configuration.tipping.cad.percentages`, `Terminal.Configuration.tipping.chf.fixed_amounts`, `Terminal.Configuration.tipping.chf.percentages`, `Terminal.Configuration.tipping.czk.fixed_amounts`, `Terminal.Configuration.tipping.czk.percentages`, `Terminal.Configuration.tipping.dkk.fixed_amounts`, `Terminal.Configuration.tipping.dkk.percentages`, `Terminal.Configuration.tipping.eur.fixed_amounts`, `Terminal.Configuration.tipping.eur.percentages`, `Terminal.Configuration.tipping.gbp.fixed_amounts`, `Terminal.Configuration.tipping.gbp.percentages`, `Terminal.Configuration.tipping.hkd.fixed_amounts`, `Terminal.Configuration.tipping.hkd.percentages`, `Terminal.Configuration.tipping.myr.fixed_amounts`, `Terminal.Configuration.tipping.myr.percentages`, `Terminal.Configuration.tipping.nok.fixed_amounts`, `Terminal.Configuration.tipping.nok.percentages`, `Terminal.Configuration.tipping.nzd.fixed_amounts`, `Terminal.Configuration.tipping.nzd.percentages`, `Terminal.Configuration.tipping.sek.fixed_amounts`, `Terminal.Configuration.tipping.sek.percentages`, `Terminal.Configuration.tipping.sgd.fixed_amounts`, `Terminal.Configuration.tipping.sgd.percentages`, `Terminal.Configuration.tipping.usd.fixed_amounts`, `Terminal.Configuration.tipping.usd.percentages`, `Treasury.FinancialAccount.active_features`, `Treasury.FinancialAccount.pending_features`, `Treasury.FinancialAccount.platform_restrictions`, and `Treasury.FinancialAccount.restricted_features` to be optional
+* Add support for `description` on `SubscriptionSchedule#create.default_settings`, `SubscriptionSchedule#create.phases[]`, `SubscriptionSchedule#update.default_settings`, `SubscriptionSchedule#update.phases[]`, `SubscriptionSchedule.default_settings`, and `SubscriptionSchedule.phases[]`
+* Add support for `login_page` on `BillingPortal.Configuration#create`, `BillingPortal.Configuration#update`, and `BillingPortal.Configuration`
+st-charlesw3:api-codegen charlesw$
+
 ## 2022-08-04
 
 - Remove support for resources `AlipayAccount`, `BitcoinReceiver`, `BitcoinTransaction`, `IssuerFraudRecord`, `Recipient`, and `ThreeDSecure`
