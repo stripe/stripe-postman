@@ -98,5 +98,12 @@ To remove all metadata pass the `metadata` parameter without a value set:
 
 ![remove metadata key](https://raw.github.com/stripe/stripe-postman/master/screenshots/postman_remove_metadata.png)
 
+## Other useful links
+- [Stripe API docs](https://docs.stripe.com/api)
+- [Stripe Developers YouTube](https://www.youtube.com/stripedevelopers)
+
+To keep track of major Stripe API updates and version, reference the [API upgrades page](https://docs.stripe.com/upgrades#api-versions) in our documentation. For a detailed list of API changes, please refer to our [API Changelog](https://docs.stripe.com/changelog).
+
+
 ## We want to hear from you
 We want to hear how we can make the collection better! Don't hestiate to file [issues](https://github.com/stripe/stripe-postman/issues) for any bugs you encounters, features you'd like to see or other suggestions you have.
