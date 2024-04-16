@@ -4,9 +4,8 @@
 ## Stripe API Postman Collection
 This is a postman collection covering the Stripe API. See https://stripe.com/docs/api for more details.
 ## Prerequisites
-[Postman](https://www.getpostman.com/downloads/)
-
-[Stripe Account](https://dashboard.stripe.com/register)
+- [Postman](https://www.getpostman.com/downloads/)
+- [Stripe Account](https://dashboard.stripe.com/register)
 ## Getting Started
 To get started you can either fork the collection from [Stripe's public workspace](https://www.postman.com/stripedev/workspace/stripe-developers/overview) within Postman or import the collection JSON file from this repo. 
 ### Fork the collection from Stripe's public workspace
