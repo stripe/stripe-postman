@@ -4,9 +4,8 @@
 ## Stripe API Postman Collection
 This is a postman collection covering the Stripe API. See https://stripe.com/docs/api for more details.
 ## Prerequisites
-[Postman](https://www.getpostman.com/downloads/)
-
-[Stripe Account](https://dashboard.stripe.com/register)
+- [Postman](https://www.getpostman.com/downloads/)
+- [Stripe Account](https://dashboard.stripe.com/register)
 ## Getting Started
 To get started you can either fork the collection from [Stripe's public workspace](https://www.postman.com/stripedev/workspace/stripe-developers/overview) within Postman or import the collection JSON file from this repo. 
 ### Fork the collection from Stripe's public workspace
@@ -97,6 +96,13 @@ Metadata key value pairs can be updated in a similar manner. To remove a metadat
 To remove all metadata pass the `metadata` parameter without a value set:
 
 ![remove metadata key](https://raw.github.com/stripe/stripe-postman/master/screenshots/postman_remove_metadata.png)
+
+## Other useful links
+- [Stripe API docs](https://docs.stripe.com/api)
+- [Stripe Developers YouTube](https://www.youtube.com/stripedevelopers)
+
+To keep track of major Stripe API updates and version, reference the [API upgrades page](https://docs.stripe.com/upgrades#api-versions) in our documentation. For a detailed list of API changes, please refer to our [API Changelog](https://docs.stripe.com/changelog).
+
 
 ## We want to hear from you
 We want to hear how we can make the collection better! Don't hestiate to file [issues](https://github.com/stripe/stripe-postman/issues) for any bugs you encounters, features you'd like to see or other suggestions you have.
